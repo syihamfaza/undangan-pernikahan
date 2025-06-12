@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="icon2.png" type="image/png" />
+  <title>Undangan Pernikahan Faza & Niswa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(#fff5f8, #ffeaf2);
+      background-image: url('https://www.transparenttextures.com/patterns/flowers.png');
+      background-repeat: repeat;
+      text-align: center;
+      color: #333;
+      animation: fadeIn 1s ease-in;
+    }
+
+    #cover {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(#fff5f8, #ffeaf2);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      text-align: center;
+      transition: opacity 0.5s ease;
+      opacity: 1;
+    }
+
+    .content {
+      max-width: 600px;
+      margin: auto;
+      padding: 2em;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      color: #c94f7c;
+      font-size: 3em;
+      margin-top: 1em;
+    }
+
+    h2 {
+      font-size: 2em;
+      margin-bottom: 0.5em;
+    }
+
+    .date, .location {
+      font-size: 1.2em;
+      margin: 1em 0;
+    }
+
+    .rsvp-button {
+      background-color: #c94f7c;
+      color: white;
+      padding: 12px 28px;
+      border: none;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1em;
+      margin-top: 1.5em;
+      display: inline-block;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: background 0.3s ease;
+    }
+
+    .rsvp-button:hover {
+      background-color: #a83c66;
+    }
+
+    audio {
+      display: none;
+    }
+
+    .countdown {
+      margin-top: 2em;
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #c94f7c;
+      background: rgba(255, 240, 245, 0.8);
+      display: inline-block;
+      padding: 1em 2em;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .guestbook {
+      max-width: 600px;
+      margin: 2em auto;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 2em;
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+
+    #guestbook-form input,
+    #guestbook-form textarea {
+      width: 100%;
+      padding: 12px 16px;
+      margin-bottom: 1em;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 1em;
+      resize: vertical;
+    }
+
+    #guestbook-form button {
+      background-color: #c94f7c;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    #guestbook-form button:hover {
+      background-color: #a83c66;
+    }
+
+    #guestbook-messages p {
+      background: #fff0f5;
+      padding: 1em;
+      border-radius: 12px;
+      margin-bottom: 1em;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      text-align: left;
+    }
+
+    #music-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #c94f7c;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 1.2em;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      cursor: pointer;
+      z-index: 999;
+    }
+
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .footer {
+      margin-top: 3em;
+      font-size: 0.9em;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <!-- COVER -->
+  <div id="cover">
+    <h1>Undangan Pernikahan</h1>
+    <p><strong>Faza & Niswa</strong></p>
+    <button onclick="bukaUndangan()" class="rsvp-button">💌 Buka Undangan</button>
+  </div>
+
+  <!-- KONTEN UTAMA -->
+  <div id="main-content" style="display: none;">
+    <button id="music-toggle">🔈</button>
+    <div class="content">
+      <h1>Undangan Pernikahan</h1>
+      <p id="tamu-nama">Saudara Tamu</p>
+      <p>Tanpa mengurangi rasa hormat. Kami mengundang Saudara serta kerabat sekalian untuk menghadiri acara pernikahan kami</p>
+      <h2>Faza</h2>
+      <p>Putra Bapak Abdullah Mas'ud & Ibu Maskanah</p>
+      <h2>&</h2>
+      <h2>Niswa</h2>
+      <p>Putri Bapak Mujiono & Ibu Khamidah</p>
+      <p class="date">Rabu, 08 Oktober 2025<br>Pukul 10.00 WIB - Selesai</p>
+      <p class="location">
+        <strong>Lokasi:</strong><br>
+        <a href="https://maps.app.goo.gl/txSzVw72ZTHPBtxm7" target="_blank" style="color: #c94f7c;">Rumah mempelai wanita</a>
+      </p>
+      <p>Dengan penuh rasa syukur, merupakan suatu kehormatan bagi kami apabila Saudara berkenan hadir dan merayakan hari bahagia kami.</p>
+      <p>Terima kasih atas perhatian dan doa restu Anda.</p>
+      <p>Kami yang berbahagia,<br><strong>Faza & Niswa</strong></p>
+      <a class="rsvp-button" href="https://wa.me/6275460902" target="_blank">Konfirmasi Kehadiran</a>
+
+      <h1>Save The Date</h1>
+      <p>"Dan di antara tanda-tanda kekuasaan-Nya diciptakan-Nya untukmu pasangan hidup dari jenismu sendiri..." (QS. Ar-Rum: 21)</p>
+      <div class="countdown" id="countdown">Loading...</div>
+    </div>
+
+    <!-- Buku Tamu -->
+    <h2 style="margin-top: 3em;">Buku Tamu</h2>
+    <div class="guestbook">
+      <form id="guestbook-form">
+        <input type="text" name="nama" placeholder="Nama Anda" required />
+        <textarea name="pesan" placeholder="Tulis ucapan..." required></textarea>
+        <button type="submit">Kirim Ucapan</button>
+        <div id="loading" style="display: none; margin-top: 1em;">
+          <div style="font-size: 2em; animation: rotate 1.2s linear infinite;">🌸</div>
+          <p style="color: #c94f7c;">Sedang menanam bunga ucapan...</p>
+        </div>
+      </form>
+      <div id="guestbook-messages"></div>
+    </div>
+    <div class="footer">© 2025 Faza & Niswa. All Rights Reserved.</div>
+  </div>
+
+  <!-- Musik -->
+  <audio id="bg-music" autoplay loop>
+    <source src="bgmusic.m4a" type="audio/mpeg" />
+  </audio>
+
+  <!-- Script -->
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const to = urlParams.get('to');
+    if (to) {
+      const formatTitleCase = str =>
+      str.toLowerCase().replace(/\b\w/g, char => char.toUpperCase());
+
+    document.getElementById('tamu-nama').textContent = 'Saudara ' + formatTitleCase(decodeURIComponent(to));
+    } else {
+      document.getElementById('tamu-nama').textContent = 'Saudara Tamu';
+    }
+
+    function bukaUndangan() {
+      const cover = document.getElementById('cover');
+      cover.style.opacity = 0;
+      setTimeout(() => {
+        cover.style.display = 'none';
+        document.getElementById('main-content').style.display = 'block';
+        bgMusic.play().catch(() => {});
+        musicBtn.textContent = '🔈';
+        isPlaying = true;
+      }, 500);
+    }
+
+    const bgMusic = document.getElementById('bg-music');
+    const musicBtn = document.getElementById('music-toggle');
+    let isPlaying = true;
+
+    musicBtn.addEventListener('click', () => {
+      if (isPlaying) {
+        bgMusic.pause();
+        musicBtn.textContent = '🔇';
+      } else {
+        bgMusic.play();
+        musicBtn.textContent = '🔈';
+      }
+      isPlaying = !isPlaying;
+    });
+
+    const form = document.getElementById('guestbook-form');
+    const messageBox = document.getElementById('guestbook-messages');
+    const endpoint = 'https://script.google.com/macros/s/AKfycbyU1RSqyT9IUWis0R-mSUlB1uelfyVuMsOWM3uSRCNNA2mnzeeQViV9oNm93CzwiRsi/exec';
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      document.getElementById('loading').style.display = 'block';
+      const data = {
+        nama: form.nama.value,
+        pesan: form.pesan.value
+      };
+      fetch(endpoint, {
+        method: 'POST',
+        body: JSON.stringify(data)
+      }).then(() => {
+        document.getElementById('loading').style.display = 'none';
+        form.reset();
+        loadMessages();
+      }).catch(() => {
+        document.getElementById('loading').style.display = 'none';
+        alert("Gagal mengirim ucapan. Coba lagi ya 🥺");
+      });
+    });
+
+    function loadMessages() {
+      fetch(endpoint)
+        .then(res => res.json())
+        .then(data => {
+          messageBox.innerHTML = data.map(d => `<p><strong>${d.nama}</strong><br>${d.pesan}</p>`).join('');
+        });
+    }
+
+    loadMessages();
+
+    function updateCountdown() {
+      const target = new Date("2025-10-08T10:00:00+07:00");
+      const now = new Date();
+      const diff = target - now;
+      if (diff <= 0) {
+        document.getElementById("countdown").innerText = "Acara sedang berlangsung! 🎉";
+        return;
+      }
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const m = Math.floor((diff / (1000 * 60)) % 60);
+      const s = Math.floor((diff / 1000) % 60);
+      document.getElementById("countdown").innerText =
+        `${d} hari ${h} jam ${m} menit ${s} detik lagi`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+</body>
+</html>
