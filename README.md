@@ -1,21 +1,42 @@
-# Undangan Pernikahan Digital
+# 💌 UNDANGAN-PERNIKAHAN
 
-Repositori ini berisi halaman undangan pernikahan digital yang bisa dibuka melalui web. Proyek ini dibuat sederhana dengan nuansa pernikahan dan dilengkapi musik latar otomatis.
+**Celebrate Love Seamlessly, Make Memories Last Forever**
 
-## 📸 Demo
-
-🌐 [Lihat Undangan (Netlify)](https://namamu-undangan.netlify.app) *(ganti URL sesuai Netlify kamu)*
+Proyek ini adalah aplikasi undangan pernikahan digital interaktif yang didesain dengan tampilan estetis, musik latar romantis, dan animasi smooth yang memberikan pengalaman yang personal bagi setiap tamu undangan.
 
 ---
 
-## 🔊 Musik Latar
+## ✨ Fitur Utama
 
-- Musik latar autoplay otomatis saat halaman dibuka.
-- Bisa menggunakan file `MP3` lokal atau dari URL online (misal dari Google Drive direct link atau CDN).
-  
-Contoh penggunaan musik dari URL:
+- 🎵 **Musik Latar**: Putar/matikan musik pengiring yang lembut.
+- 📆 **Countdown Pernikahan**: Hitung mundur ke hari H secara real-time.
+- 🌿 **Background Motif Daun**: Estetika elegan dengan latar bergerak.
+- 🖋️ **Personalisasi Nama Tamu**: Undangan otomatis menampilkan nama tamu berdasarkan URL.
+- 💬 **Buku Tamu Digital (RSVP)**: Kirim ucapan langsung melalui form.
+- 📍 **Tombol Lokasi Google Maps**: Akses lokasi acara dengan sekali klik.
+- 📱 **Responsif & Ringan**: Cocok untuk perangkat mobile dan desktop.
 
-```html
-<audio autoplay loop>
-  <source src="https://yourcdn.com/music.mp3" type="audio/mpeg">
-</audio>
+---
+
+## 🛠️ Teknologi
+
+Dibangun dengan alat dan teknologi berikut:
+
+| Teknologi | Deskripsi |
+|----------|-----------|
+| HTML & CSS | Struktur & gaya halaman |
+| JavaScript | Interaktivitas (musik, animasi, countdown, RSVP) |
+| Google Fonts | Tipografi elegan |
+| Google Apps Script | Backend untuk buku tamu |
+| IntersectionObserver | Efek animasi scroll |
+| Audio HTML5 | Musik latar |
+| Google Maps | Navigasi lokasi acara |
+
+---
+
+## 🚀 Cara Menjalankan
+
+1. Clone repo atau salin file HTML.
+2. Host di server lokal atau upload ke layanan seperti GitHub Pages / Netlify.
+3. Ganti data nama, tanggal, lokasi, dan lagu sesuai kebutuhan.
+4. Tambahkan parameter `?to=NamaTamu` di URL untuk personalisasi.
