@@ -144,7 +144,7 @@
     loadMessages();
 
     function updateCountdown() {
-      const target = new Date("2025-10-08T10:00:00+07:00");
+      const target = new Date("2025-10-08T00:00:00+07:00");
       const now = new Date();
       const diff = target - now;
       if (diff <= 0) {
@@ -170,7 +170,7 @@
 
     setTimeout(() => {
       popup.style.display = 'none';
-    }, 3000); // 3 detik tampil lalu hilang
+    }, 5000); // 5 detik tampil lalu hilang
   });
 
   const fadeEls = document.querySelectorAll('.fade-scroll');
